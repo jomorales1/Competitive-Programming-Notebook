@@ -22,6 +22,21 @@ int binary_search(const vector<int> &elements, int x) {
     return -1;
 }
 
+int binary_search(int elements[], int n, int x) {
+    int left = 0;
+    int right = n - 1;
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+        if (elements[mid] == x)
+            return mid;
+        if (elements[mid] < x)
+            left = mid + 1;
+        if (elements[mid] > x)
+            right = mid - 1;
+    }
+    return -1;
+}
+
 int main() {
     // Index: 0 1 2 3 4 5 6 7 8 9
     // Value: 1 2 3 4 5 6 7 8 9 10
